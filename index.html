@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input
+      type="number"
+      id="numberInput"
+      placeholder="Enter a number (1-100)"
+    />
+    <button onclick="checkPDCNID()">Check</button>
+    <p id="result"></p>
+
+    <script>
+      function checkPDCNID() {
+        let num = Number(document.getElementById("numberInput").value);
+
+        if (num < 1 || num > 100) {
+          document.getElementById("result").innerHTML =
+            "Please enter a number between 1 and 100";
+          return;
+        }
+
+        let result;
+        if (num % 3 === 0 && num % 5 === 0) {
+          result = num + " is PDC NID";
+        } else if (num % 3 === 0) {
+          result = num + " is PDC";
+        } else if (num % 5 === 0) {
+          result = num + " is NID";
+        } else {
+          result = num + " is neither PDC nor NID";
+        }
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
